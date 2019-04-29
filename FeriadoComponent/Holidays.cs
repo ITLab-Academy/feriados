@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FeriadoComponent
 {
-    public class Holidays
+    public static class Holidays
     {
-        public bool IsHoliday(DateTime date, bool isFeriadoFacultativo)
+        public static bool IsHoliday(DateTime date, bool isFeriadoFacultativo)
         {
             if (IsNewYear(date)) return true;
 
@@ -44,42 +44,42 @@ namespace FeriadoComponent
 
         }
 
-        public bool IsNewYear(DateTime date)
+        public static bool IsNewYear(DateTime date)
         {
             if (date.Month == 01 && date.Day == 01) return true;
 
             return false;
         }
 
-        public bool IsTiradentes(DateTime date)
+        public static bool IsTiradentes(DateTime date)
         {
             if (date.Month == 04 && date.Day == 21) return true;
 
             return false;
         }
 
-        public bool IsSaoPauloBirthday(DateTime date)
+        public static bool IsSaoPauloBirthday(DateTime date)
         {
             if (date.Month == 01 && date.Day == 25) return true;
 
             return false;
         }
 
-        public bool IsWorkDay(DateTime date)
+        public static bool IsWorkDay(DateTime date)
         {
             if (date.Month == 05 && date.Day == 01) return true;
 
             return false;
         }
 
-        public bool IsRevolutionDay(DateTime date)
+        public static bool IsRevolutionDay(DateTime date)
         {
             if (date.Month == 07 && date.Day == 09) return true;
 
             return false;
         }
 
-        public bool IsGoodFriday(DateTime date)
+        public static bool IsGoodFriday(DateTime date)
         {
             var pascoa = CalculoPascoa(date.Year);
             var goodFriday = pascoa.AddDays(-2);
@@ -89,7 +89,7 @@ namespace FeriadoComponent
             return false;
         }
 
-        public DateTime CalculoPascoa(int year)
+        public static DateTime CalculoPascoa(int year)
         {
             // Duvidas: http://www.vision.ime.usp.br/~pmiranda/mc102_1s07/lab01/lab.html
 
@@ -127,44 +127,44 @@ namespace FeriadoComponent
             return pascoa;
         }
 
-        public bool IsIndependenceDay(DateTime date)
+        public static bool IsIndependenceDay(DateTime date)
         {
             if (date.Month == 09 && date.Day == 7) return true;
 
             return false;
         }
 
-        public bool IsChildrensDay(DateTime date)
+        public static bool IsChildrensDay(DateTime date)
         {
             if (date.Month == 10 && date.Day == 12) return true;
             return false;
         }
 
-        public bool IsAllSoulsDay(DateTime date)
+        public static bool IsAllSoulsDay(DateTime date)
         {
             if (date.Month == 11 && date.Day == 02) return true;
             return false;
         }
 
-        public bool IsRepublicProclamation(DateTime date)
+        public static bool IsRepublicProclamation(DateTime date)
         {
             if (date.Month == 11 && date.Day == 15) return true;
             return false;
         }
 
-        public bool IsBlackConsciousnessDay(DateTime date)
+        public static bool IsBlackConsciousnessDay(DateTime date)
         {
             if (date.Month == 11 && date.Day == 20) return true;
             return false;
         }
 
-        public bool IsChristmasDay(DateTime date)
+        public static bool IsChristmasDay(DateTime date)
         {
             if (date.Month == 12 && date.Day == 25) return true;
             return false;
         }
 
-        public bool IsCarnaval(DateTime date)
+        public static bool IsCarnaval(DateTime date)
         {
             var carnaval = CalculoCarnaval(date.Year);
             if (date == carnaval) return true;
@@ -172,7 +172,7 @@ namespace FeriadoComponent
             return false;
         }
 
-        public DateTime CalculoCarnaval(int year)
+        public static DateTime CalculoCarnaval(int year)
         {
             var pascoa = CalculoPascoa(year);
             var carnaval = pascoa.AddDays(-47);
@@ -180,7 +180,7 @@ namespace FeriadoComponent
             return carnaval;
         }
 
-        public bool IsCorpusChristi(DateTime date)
+        public static bool IsCorpusChristi(DateTime date)
         {
             var pascoa = CalculoPascoa(date.Year);
             var corpusChristi = pascoa.AddDays(60);
@@ -190,7 +190,7 @@ namespace FeriadoComponent
             return false;
         }
 
-        public bool IsOptionalDate(DateTime date)
+        public static bool IsOptionalDate(DateTime date)
         {
             var preCarnaval = CalculoCarnaval(date.Year);
             preCarnaval = preCarnaval.AddDays(-1);

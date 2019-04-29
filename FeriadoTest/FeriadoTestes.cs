@@ -18,12 +18,9 @@ namespace FeriadosTeste
             newYears.Add(new DateTime(2040, 01, 01));
             newYears.Add(new DateTime(1994, 01, 01));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in newYears)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -52,11 +49,11 @@ namespace FeriadosTeste
             newYears.Add(new DateTime(2019, 11, 1));
             newYears.Add(new DateTime(2019, 12, 1));
 
-            var holiday = new Holidays();
+            
 
             foreach (var item in newYears)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -74,12 +71,9 @@ namespace FeriadosTeste
             birthdaySP.Add(new DateTime(2040, 01, 25));
             birthdaySP.Add(new DateTime(1994, 01, 25));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in birthdaySP)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -103,11 +97,9 @@ namespace FeriadosTeste
             birthdaySP.Add(new DateTime(1994, 10, 25));
             birthdaySP.Add(new DateTime(1994, 11, 25));
 
-            var holiday = new Holidays();
-
             foreach (var item in birthdaySP)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -125,12 +117,9 @@ namespace FeriadosTeste
             independenceDay.Add(new DateTime(1994, 09, 07));
             independenceDay.Add(new DateTime(2019, 09, 07));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in independenceDay)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -148,12 +137,9 @@ namespace FeriadosTeste
             independenceDay.Add(new DateTime(1994, 09, 12));
             independenceDay.Add(new DateTime(2019, 10, 07));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in independenceDay)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -171,12 +157,9 @@ namespace FeriadosTeste
             childrensDay.Add(new DateTime(1994, 10, 12));
             childrensDay.Add(new DateTime(2019, 10, 12));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in childrensDay)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -193,12 +176,9 @@ namespace FeriadosTeste
             childrensDay.Add(new DateTime(2040, 09, 12));
             childrensDay.Add(new DateTime(1994, 11, 12));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in childrensDay)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -216,12 +196,9 @@ namespace FeriadosTeste
             allSoulsDay.Add(new DateTime(1994, 11, 02));
             allSoulsDay.Add(new DateTime(2019, 11, 02));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in allSoulsDay)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -239,12 +216,9 @@ namespace FeriadosTeste
             allSoulsDay.Add(new DateTime(1994, 12, 02));
             allSoulsDay.Add(new DateTime(2019, 10, 02));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in allSoulsDay)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -263,11 +237,9 @@ namespace FeriadosTeste
             tiradentes.Add(new DateTime(2030, 04, 21));
             tiradentes.Add(new DateTime(2040, 04, 21));
 
-            var holiday = new Holidays();
-
             foreach (var item in tiradentes)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -292,11 +264,9 @@ namespace FeriadosTeste
             tiradentes.Add(new DateTime(2040, 11, 21));
             tiradentes.Add(new DateTime(2040, 12, 21));
 
-            var holiday = new Holidays();
-
             foreach (var item in tiradentes)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -321,11 +291,9 @@ namespace FeriadosTeste
             WorkDay.Add(new DateTime(2040, 11, 01));
             WorkDay.Add(new DateTime(2040, 12, 01));
 
-            var holiday = new Holidays();
-
             foreach (var item in WorkDay)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -345,11 +313,9 @@ namespace FeriadosTeste
             WorkDay.Add(new DateTime(2089, 05, 01));
 
 
-            var holiday = new Holidays();
-
             foreach (var item in WorkDay)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -374,11 +340,9 @@ namespace FeriadosTeste
             revolutionDay.Add(new DateTime(2040, 11, 09));
             revolutionDay.Add(new DateTime(2040, 12, 09));
 
-            var holiday = new Holidays();
-
             foreach (var item in revolutionDay)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -403,11 +367,9 @@ namespace FeriadosTeste
             revolutionDay.Add(new DateTime(2040, 07, 09));
             revolutionDay.Add(new DateTime(2040, 07, 09));
 
-            var holiday = new Holidays();
-
             foreach (var item in revolutionDay)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -430,11 +392,9 @@ namespace FeriadosTeste
             goodFriday.Add(new DateTime(2028, 4, 14));
             goodFriday.Add(new DateTime(2029, 3, 30));
 
-            var holiday = new Holidays();
-
             foreach (var item in goodFriday)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -459,11 +419,9 @@ namespace FeriadosTeste
             goodFriday.Add(new DateTime(2028, 4, 15));
             goodFriday.Add(new DateTime(2029, 3, 29));
 
-            var holiday = new Holidays();
-
             foreach (var item in goodFriday)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -482,12 +440,9 @@ namespace FeriadosTeste
             republicProclamation.Add(new DateTime(1994, 11, 15));
             republicProclamation.Add(new DateTime(2019, 11, 15));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in republicProclamation)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -506,12 +461,9 @@ namespace FeriadosTeste
             republicProclamation.Add(new DateTime(1994, 10, 13));
             republicProclamation.Add(new DateTime(2019, 12, 15));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in republicProclamation)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -530,12 +482,9 @@ namespace FeriadosTeste
             blackConsciousness.Add(new DateTime(1994, 11, 20));
             blackConsciousness.Add(new DateTime(2019, 11, 20));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in blackConsciousness)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -553,12 +502,9 @@ namespace FeriadosTeste
             blackConsciousness.Add(new DateTime(1994, 11, 23));
             blackConsciousness.Add(new DateTime(2019, 11, 24));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in blackConsciousness)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -576,12 +522,9 @@ namespace FeriadosTeste
             christmas.Add(new DateTime(1994, 12, 25));
             christmas.Add(new DateTime(2019, 12, 25));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in christmas)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(true, result);
             }
@@ -599,12 +542,9 @@ namespace FeriadosTeste
             christmas.Add(new DateTime(1994, 12, 22));
             christmas.Add(new DateTime(2019, 09, 25));
 
-
-            var holiday = new Holidays();
-
             foreach (var item in christmas)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
 
                 Assert.AreEqual(false, result);
             }
@@ -622,11 +562,9 @@ namespace FeriadosTeste
             date.Add(new DateTime(1980, 04, 06));
             date.Add(new DateTime(1986, 03, 30));
 
-            var holiday = new Holidays();
-
             foreach (var item in date)
             {
-                var result = holiday.CalculoPascoa(item.Year);
+                var result = Holidays.CalculoPascoa(item.Year);
                 Assert.AreEqual(item, result);
             }
 
@@ -643,11 +581,9 @@ namespace FeriadosTeste
             date.Add(new DateTime(1980, 04, 07));
             date.Add(new DateTime(1986, 03, 29));
 
-            var holiday = new Holidays();
-
             foreach (var item in date)
             {
-                var result = holiday.CalculoPascoa(item.Year);
+                var result = Holidays.CalculoPascoa(item.Year);
                 Assert.AreNotEqual(item, result); //Correto?
             }
 
@@ -664,11 +600,9 @@ namespace FeriadosTeste
             carnaval.Add(new DateTime(1980, 02, 19));
             carnaval.Add(new DateTime(1986, 02, 11));
 
-            var holiday = new Holidays();
-
             foreach (var item in carnaval)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
                 Assert.AreEqual(true, result);
             }
         }
@@ -685,11 +619,9 @@ namespace FeriadosTeste
             carnaval.Add(new DateTime(1980, 02, 18));
             carnaval.Add(new DateTime(1986, 02, 12));
 
-            var holiday = new Holidays();
-
             foreach (var item in carnaval)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
                 Assert.AreEqual(false, result);
             }
         }
@@ -710,11 +642,9 @@ namespace FeriadosTeste
             carnaval.Add(new DateTime(1986, 02, 11));
             carnaval.Add(new DateTime(1986, 02, 10));
 
-            var holiday = new Holidays();
-
             foreach (var item in carnaval)
             {
-                var result = holiday.IsHoliday(item, true);
+                var result = Holidays.IsHoliday(item, true);
                 Assert.AreEqual(true, result);
             }
         }
@@ -734,11 +664,9 @@ namespace FeriadosTeste
             carnaval.Add(new DateTime(1980, 02, 20));
             carnaval.Add(new DateTime(1986, 02, 12));
 
-            var holiday = new Holidays();
-
             foreach (var item in carnaval)
             {
-                var result = holiday.IsHoliday(item, true);
+                var result = Holidays.IsHoliday(item, true);
                 Assert.AreEqual(false, result);
             }
         }
@@ -754,11 +682,9 @@ namespace FeriadosTeste
             carnaval.Add(new DateTime(1980, 06, 05));
             carnaval.Add(new DateTime(1986, 05, 29));
 
-            var holiday = new Holidays();
-
             foreach (var item in carnaval)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
                 Assert.AreEqual(true, result);
             }
         }
@@ -774,11 +700,9 @@ namespace FeriadosTeste
             carnaval.Add(new DateTime(1980, 06, 04));
             carnaval.Add(new DateTime(1986, 05, 28));
 
-            var holiday = new Holidays();
-
             foreach (var item in carnaval)
             {
-                var result = holiday.IsHoliday(item, false);
+                var result = Holidays.IsHoliday(item, false);
                 Assert.AreEqual(false, result);
             }
         }

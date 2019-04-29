@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeriadoComponent", "FeriadoComponent\FeriadoComponent.csproj", "{F5231A87-494B-40F8-8B0D-D000811135FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeriadosTeste", "FeriadosTeste\FeriadosTeste.csproj", "{F87B2A47-20BE-441F-8270-D04E53F6D6D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeriadoTest", "FeriadoTest\FeriadoTest.csproj", "{89C2FD5E-9505-4335-814E-8A83EC3A6FA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{F5231A87-494B-40F8-8B0D-D000811135FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5231A87-494B-40F8-8B0D-D000811135FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5231A87-494B-40F8-8B0D-D000811135FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F87B2A47-20BE-441F-8270-D04E53F6D6D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F87B2A47-20BE-441F-8270-D04E53F6D6D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F87B2A47-20BE-441F-8270-D04E53F6D6D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F87B2A47-20BE-441F-8270-D04E53F6D6D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89C2FD5E-9505-4335-814E-8A83EC3A6FA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89C2FD5E-9505-4335-814E-8A83EC3A6FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89C2FD5E-9505-4335-814E-8A83EC3A6FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89C2FD5E-9505-4335-814E-8A83EC3A6FA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
