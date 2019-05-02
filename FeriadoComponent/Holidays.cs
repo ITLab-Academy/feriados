@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FeriadoComponent
 {
-    public static class Holidays
+    public class Holidays
     {
-        public static bool IsHoliday(DateTime date, bool isFeriadoFacultativo)
+        public bool IsHoliday(DateTime date, bool isOptionalDate)
         {
             if (IsNewYear(date)) return true;
 
@@ -38,48 +38,48 @@ namespace FeriadoComponent
 
             if (IsCorpusChristi(date)) return true;
 
-            if (isFeriadoFacultativo && IsOptionalDate(date)) return true;
+            if (isOptionalDate && IsOptionalDate(date)) return true;
 
             return false;
 
         }
 
-        public static bool IsNewYear(DateTime date)
+        public bool IsNewYear(DateTime date)
         {
             if (date.Month == 01 && date.Day == 01) return true;
 
             return false;
         }
 
-        public static bool IsTiradentes(DateTime date)
+        public bool IsTiradentes(DateTime date)
         {
             if (date.Month == 04 && date.Day == 21) return true;
 
             return false;
         }
 
-        public static bool IsSaoPauloBirthday(DateTime date)
+        public bool IsSaoPauloBirthday(DateTime date)
         {
             if (date.Month == 01 && date.Day == 25) return true;
 
             return false;
         }
 
-        public static bool IsWorkDay(DateTime date)
+        public bool IsWorkDay(DateTime date)
         {
             if (date.Month == 05 && date.Day == 01) return true;
 
             return false;
         }
 
-        public static bool IsRevolutionDay(DateTime date)
+        public bool IsRevolutionDay(DateTime date)
         {
             if (date.Month == 07 && date.Day == 09) return true;
 
             return false;
         }
 
-        public static bool IsGoodFriday(DateTime date)
+        public bool IsGoodFriday(DateTime date)
         {
             var pascoa = CalculoPascoa(date.Year);
             var goodFriday = pascoa.AddDays(-2);
@@ -89,10 +89,11 @@ namespace FeriadoComponent
             return false;
         }
 
-        public static DateTime CalculoPascoa(int year)
+        public DateTime CalculoPascoa(int year)
         {
             // Duvidas: http://www.vision.ime.usp.br/~pmiranda/mc102_1s07/lab01/lab.html
 
+            var pascoa = new DateTime();
             var y_ano = year;
             var g_resto_divisao = y_ano % 19 + 1;
             var c_quociente = (y_ano / 100) + 1;
@@ -114,7 +115,6 @@ namespace FeriadoComponent
             var d_quociente_divisao = (((5 * y_ano) / 4) - (x_quociente + 10));
             n_lua_cheia += 7 - ((d_quociente_divisao + n_lua_cheia) % 7);
 
-            DateTime pascoa;
             if (n_lua_cheia > 31)
             {
                 pascoa = new DateTime(y_ano, 04, (n_lua_cheia - 31));
@@ -127,44 +127,44 @@ namespace FeriadoComponent
             return pascoa;
         }
 
-        public static bool IsIndependenceDay(DateTime date)
+        public bool IsIndependenceDay(DateTime date)
         {
             if (date.Month == 09 && date.Day == 7) return true;
 
             return false;
         }
 
-        public static bool IsChildrensDay(DateTime date)
+        public bool IsChildrensDay(DateTime date)
         {
             if (date.Month == 10 && date.Day == 12) return true;
             return false;
         }
 
-        public static bool IsAllSoulsDay(DateTime date)
+        public bool IsAllSoulsDay(DateTime date)
         {
             if (date.Month == 11 && date.Day == 02) return true;
             return false;
         }
 
-        public static bool IsRepublicProclamation(DateTime date)
+        public bool IsRepublicProclamation(DateTime date)
         {
             if (date.Month == 11 && date.Day == 15) return true;
             return false;
         }
 
-        public static bool IsBlackConsciousnessDay(DateTime date)
+        public bool IsBlackConsciousnessDay(DateTime date)
         {
             if (date.Month == 11 && date.Day == 20) return true;
             return false;
         }
 
-        public static bool IsChristmasDay(DateTime date)
+        public bool IsChristmasDay(DateTime date)
         {
             if (date.Month == 12 && date.Day == 25) return true;
             return false;
         }
 
-        public static bool IsCarnaval(DateTime date)
+        public bool IsCarnaval(DateTime date)
         {
             var carnaval = CalculoCarnaval(date.Year);
             if (date == carnaval) return true;
@@ -172,7 +172,7 @@ namespace FeriadoComponent
             return false;
         }
 
-        public static DateTime CalculoCarnaval(int year)
+        public DateTime CalculoCarnaval(int year)
         {
             var pascoa = CalculoPascoa(year);
             var carnaval = pascoa.AddDays(-47);
@@ -180,7 +180,7 @@ namespace FeriadoComponent
             return carnaval;
         }
 
-        public static bool IsCorpusChristi(DateTime date)
+        public bool IsCorpusChristi(DateTime date)
         {
             var pascoa = CalculoPascoa(date.Year);
             var corpusChristi = pascoa.AddDays(60);
@@ -190,7 +190,7 @@ namespace FeriadoComponent
             return false;
         }
 
-        public static bool IsOptionalDate(DateTime date)
+        public bool IsOptionalDate(DateTime date)
         {
             var preCarnaval = CalculoCarnaval(date.Year);
             preCarnaval = preCarnaval.AddDays(-1);
@@ -201,7 +201,5 @@ namespace FeriadoComponent
 
             return false;
         }
-
-
     }
 }
