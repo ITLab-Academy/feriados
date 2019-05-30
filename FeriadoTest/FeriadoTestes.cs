@@ -13,6 +13,7 @@ namespace FeriadosTeste
         {
             var newYears = new List<DateTime>();
 
+
             newYears.Add(new DateTime(1980, 01, 01));
             newYears.Add(new DateTime(2019, 01, 01));
             newYears.Add(new DateTime(2040, 01, 01));
@@ -20,9 +21,9 @@ namespace FeriadosTeste
 
             foreach (var item in newYears)
             {
-                var result = Holidays.IsHoliday(item,false);
+                var result = Holidays.IsHoliday(item, false);
 
-                Assert.AreEqual(true, result); 
+                Assert.AreEqual(true, result);
             }
         }
 

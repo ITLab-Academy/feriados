@@ -6,8 +6,60 @@ using System.Threading.Tasks;
 
 namespace FeriadoComponent
 {
-    public static class Holidays
+    public class Holidays
     {
+        private List<Holiday> HolidaysList = new List<Holiday>();
+
+        public Holidays()
+        {
+            SetStaticHolidays();
+        }
+
+        public Holidays(int[] Years)
+        {
+            SetStaticHolidays();
+
+            foreach (var year in Years)
+            {
+                var easter = CalculoPascoa(year);
+                var carnival = CalculoCarnaval(year);
+                var corpusChrist = easter.AddDays(60);
+                var goodFriday = easter.AddDays(-2);
+                HolidaysList.Add(new Holiday() { Year = year, Month = easter.Month, Day = easter.Day, Description = "Pascoa" });
+                HolidaysList.Add(new Holiday() { Year = year, Month = carnival.Month, Day = carnival.Day, Description = "Carnaval" });
+                HolidaysList.Add(new Holiday() { Year = year, Month = corpusChrist.Month, Day = corpusChrist.Day, Description = "Corpus Christ" });
+                HolidaysList.Add(new Holiday() { Year = year, Month = goodFriday.Month, Day = goodFriday.Day, Description = "Sexta-feira santa" }); 
+            }
+        }
+
+        private void SetStaticHolidays()
+        {
+            HolidaysList.Add(new Holiday() { Month = 1, Day = 1, Description = "Ano novo" });
+            HolidaysList.Add(new Holiday() { Month = 4, Day = 21, Description = "Tiradentes" });
+            HolidaysList.Add(new Holiday() { Month = 5, Day = 1, Description = "Dia do trabalhador" });
+            HolidaysList.Add(new Holiday() { Month = 9, Day = 7, Description = "Independencia" });
+            HolidaysList.Add(new Holiday() { Month = 10, Day = 12, Description = "Nossa senhora de aparecida" });
+            HolidaysList.Add(new Holiday() { Month = 11, Day = 2, Description = "Finados" });
+            HolidaysList.Add(new Holiday() { Month = 11, Day = 15, Description = "Proclamação da republica" });
+            HolidaysList.Add(new Holiday() { Month = 12, Day = 25, Description = "Natal" });
+        }
+
+        public void Add(Holiday holiday)
+        {
+            HolidaysList.Add(holiday);
+        }
+
+        public void AddHolidaysSP()
+        {
+            HolidaysList.Add(new Holiday() { Month = 11, Day = 20, Description = "Consciência Negra" });
+            HolidaysList.Add(new Holiday() { Month = 07, Day = 09, Description = "Revolução Constitucionalista"});
+        }
+
+        public List<Holiday> GetHolidays()
+        {
+            return HolidaysList;
+        }
+
         public static bool IsHoliday(DateTime date, bool isOptionalDate)
         {
             if (IsNewYear(date)) return true;
@@ -82,7 +134,7 @@ namespace FeriadoComponent
         public static bool IsGoodFriday(DateTime date)
         {
             var pascoa = CalculoPascoa(date.Year);
-            var goodFriday = pascoa.AddDays(-2);
+            var goodFriday = pascoa.AddDays(-2); //TODO: Revisar esse codigo pois temos duplicidade (Sexta-feira santa)
 
             if (goodFriday == date) return true;
 
@@ -132,37 +184,37 @@ namespace FeriadoComponent
             if (date.Month == 09 && date.Day == 7) return true;
 
             return false;
-        }
+        } //TODO: Daniela Nascimento
 
         public static bool IsChildrensDay(DateTime date)
         {
             if (date.Month == 10 && date.Day == 12) return true;
             return false;
-        }
+        } //TODO: Daniela Nascimento
 
         public static bool IsAllSoulsDay(DateTime date)
         {
             if (date.Month == 11 && date.Day == 02) return true;
             return false;
-        }
+        } //TODO: Daniela Nascimento
 
         public static bool IsRepublicProclamation(DateTime date)
         {
             if (date.Month == 11 && date.Day == 15) return true;
             return false;
-        }
+        } //TODO: Daniela Nascimento
 
         public static bool IsBlackConsciousnessDay(DateTime date)
         {
             if (date.Month == 11 && date.Day == 20) return true;
             return false;
-        }
+        } //TODO: Daniela Nascimento
 
         public static bool IsChristmasDay(DateTime date)
         {
             if (date.Month == 12 && date.Day == 25) return true;
             return false;
-        }
+        } //TODO: Andre Falcao
 
         public static bool IsCarnaval(DateTime date)
         {
@@ -170,7 +222,7 @@ namespace FeriadoComponent
             if (date == carnaval) return true;
 
             return false;
-        }
+        } //TODO: Andre Falcao
 
         public static DateTime CalculoCarnaval(int year)
         {
@@ -178,17 +230,17 @@ namespace FeriadoComponent
             var carnaval = pascoa.AddDays(-47);
 
             return carnaval;
-        }
+        } //TODO: Andre Falcao
 
         public static bool IsCorpusChristi(DateTime date)
         {
             var pascoa = CalculoPascoa(date.Year);
-            var corpusChristi = pascoa.AddDays(60);
+            var corpusChristi = pascoa.AddDays(60); //TODO: Revisar esse codigo  pois temos duplicidade
 
             if (date == corpusChristi) return true;
 
             return false;
-        }
+        } //TODO: Andre Falcao
 
         public static bool IsOptionalDate(DateTime date)
         {
@@ -200,6 +252,6 @@ namespace FeriadoComponent
             if (preCarnaval == date) return true;
 
             return false;
-        }
+        } //TODO: Andre Falcao
     }
 }
